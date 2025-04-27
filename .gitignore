@@ -3,6 +3,12 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+*.vs
+x64/
+x86/
+Debug/
+Release/
+
 # C extensions
 *.so
 
