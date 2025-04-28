@@ -67,9 +67,6 @@ class SmartPhone:
         for i in range(len(self.AddressList)):
             self.print_addr(i)
 
-        for i in self.AddressList:
-            print(i)
-
     def search_addr(self, name:str):
         index = self.find_addr_index(name)
         if index == None:
@@ -91,6 +88,8 @@ class SmartPhone:
 
         if index == None:
             print(f"{name} - 대상이 발견되지 않았습니다.")
+        elif newAddr == None:
+            print(f"새 데이터 생성 실패 - 수정 취소")
         else:
             self.AddressList.pop(index)
             self.AddressList.insert(index, newAddr)

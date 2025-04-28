@@ -1,0 +1,4 @@
+import itertools
+
+mlist = [1,2,3,4,5]
+print(len(list(itertools.permutations(mlist, 3))))
