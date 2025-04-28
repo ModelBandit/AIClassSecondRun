@@ -19,6 +19,7 @@ def show_seats():	#현재 좌석 현황을 화면에 보여주기 (O, X 표시)
 def select_date():
     dateString = input("오늘 이후 원하시는 날짜를 입력하시오: ").split()
 
+def select_seat():	#사용자로부터 예매할 좌석 입력받기
     strings = input("좌석을 입력하시오(ex A1 B3)").split(" ")
     for string in strings:
         check_seat_availability(string)
