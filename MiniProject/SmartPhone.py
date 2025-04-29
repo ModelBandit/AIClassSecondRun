@@ -1,8 +1,11 @@
-from Address import Addr
+from Address import *
+
+Addr()
 
 class SmartPhone:
     def __init__(self):
         self.AddressList = []
+        self.groupList = ("친구","가족","회사","거래처")
         num = 2
         print(f"# 데이터 {num}개를 입력합니다.")
         for i in range(num):
@@ -14,7 +17,7 @@ class SmartPhone:
     def input_addr_data(self):
         name = input("이름: ")
         if name.isdigit() == True:
-            print("생성 실패 - 숫자는 이름으로 받지 않습니다.")
+            print("생성 실패 - 숫자로만 된 이름으로 받지 않습니다.")
             return None
         
         phone = input("전화번호: ")
@@ -34,12 +37,50 @@ class SmartPhone:
         address = input("주소: ")
         # 예외처리용
 
-        group = input("그룹(친구/가족): ")
-        if group != "친구" and group != "가족":
+        group = input("그룹(친구/가족/회사/거래처): ")
+        if group not in self.groupList:
             print("생성 실패 - 친구나 가족만 받습니다.")
             return None
+        
+        addr = 0 # Addr을 초기화할 공간
+        if group == "회사":
+            company = input("회사명: ")
+            if company.isdigit() == True:
+                print("생성 실패 - 숫자로만 된 이름으로 받지 않습니다.")
+                return None
 
-        addr = Addr(name, phone, email, address, group)
+            department = input("품목명: ")
+            if department.isdigit() == True:
+                print("생성 실패 - 숫자로만 된 이름으로 받지 않습니다.")
+                return None
+            
+            rank = input("직급: ")
+            if rank.isdigit() == True:
+                print("생성 실패 - 숫자로만 된 이름으로 받지 않습니다.")
+                return None
+
+            addr = CompanyAddr(name, phone, email, address, group, company, department, rank)
+        elif group == "거래처":
+            
+            business = input("거래처: ")
+            if business.isdigit() == True:
+                print("생성 실패 - 숫자로만 된 이름으로 받지 않습니다.")
+                return None
+
+            itemName = input("품목명: ")
+            if itemName.isdigit() == True:
+                print("생성 실패 - 숫자로만 된 이름으로 받지 않습니다.")
+                return None
+            
+            rank = input("직급: ")
+            if rank.isdigit() == True:
+                print("생성 실패 - 숫자로만 된 이름으로 받지 않습니다.")
+                return None
+
+            addr = CustomerAddr(name, phone, email, address, group, business, itemName, rank)
+        else:
+            addr = Addr(name, phone, email, address, group)
+
         return addr
 
     def add_addr(self, addr:Addr):
@@ -52,15 +93,11 @@ class SmartPhone:
 
     
     def print_addr(self, index:int):
-        if iter < 0 or iter >= len(self.AddressList):
+        if index < 0 or index >= len(self.AddressList):
             print("범위를 초과하였습니다.")
             return
         
-        print(f"이름: {self.AddressList[index].name}")
-        print(f"전화번호: {self.AddressList[index].phone}")
-        print(f"이메일: {self.AddressList[index].email}")
-        print(f"주소: {self.AddressList[index].address}")
-        print(f"그룹(친구/가족): {self.AddressList[index].group}")
+        self.AddressList[index].printInfo()
         print()
 
     def print_all_addr(self):
@@ -73,8 +110,8 @@ class SmartPhone:
             print(f"{name} - 대상이 발견되지 않았습니다.")
         else:
             self.print_addr(index)
-            
-    
+        
+
     def delete_addr(self, name:str):
         index = self.find_addr_index(name)
         if index == None:
