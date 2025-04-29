@@ -40,7 +40,7 @@ def select_date():
     elif  dateString.isdigit() == False:
         print("숫자를 쓰십시요.")
         return None
-    elif dateString[0:2] < today.year%100 or dateString[2:4] < today.month or dateString[4:6] < today.day:
+    elif int(dateString[0:2]) < today.year%100 or int(dateString[2:4]) < today.month or int(dateString[4:6]) < today.day:
         print("과거의 날짜에 예약은 불가능합니다.")
     
     if dateString not in MovieDict:
@@ -63,7 +63,7 @@ def select_seat():	#사용자로부터 예매할 좌석 입력받기
     return strings
 
 def check_seat_availability(seat:str):	#좌석이 예매 가능한지 확인하기
-    if df[seat[0]][int(seat[1])] == 'X':
+    if MovieDict[dateString].loc[int(seat[1]), seat[0]] == 'X':
         return True
     return False
 
