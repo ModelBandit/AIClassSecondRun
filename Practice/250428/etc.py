@@ -35,5 +35,5 @@
 # print(dir)
 # dir = os.getcwd()
 # print(dir)
-# f = os.popen("copy con aaaaa.txt").read()#파일생성으로 확인해본 바 실제로 동작은 안함. 보고 나오는 문자만 출력함
+# f = os.popen("copy con aaaaa.txt").read()#파일생성으로 확인해본 바 c:에 생성됨. 디렉토리가 c:\\인 상태로 시작하는듯함. 보고 나오는 문자를 출력함
 # print(f)
