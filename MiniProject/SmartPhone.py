@@ -39,7 +39,7 @@ class SmartPhone:
 
         group = input("그룹(친구/가족/회사/거래처): ")
         if group not in self.groupList:
-            print("생성 실패 - 친구나 가족만 받습니다.")
+            print("생성 실패 - 설정된 예시 말고는 거부됩니다.")
             return None
         
         addr = 0 # Addr을 초기화할 공간
