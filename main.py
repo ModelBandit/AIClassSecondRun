@@ -1,4 +1,5 @@
 from abc import ABC, abstractmethod
+
 # abstractstaticmethod랑 abstractclassmethod가 있었는데 3.3이후로 폐지 됐지만 남아는 있음
 # 이름따라서 static method랑 class method였을 듯 함.
 # static은 getter setter랑 abstractmethod랑 겹쳐서 사라지고

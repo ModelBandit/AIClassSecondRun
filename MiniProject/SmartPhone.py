@@ -1,7 +1,5 @@
 from Address import *
 
-Addr()
-
 class SmartPhone:
     def __init__(self):
         self.AddressList = []

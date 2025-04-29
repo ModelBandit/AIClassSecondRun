@@ -1,4 +1,3 @@
-
 from SmartPhone import SmartPhone
 
 class SmartPhoneMain:
