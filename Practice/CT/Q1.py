@@ -12,7 +12,6 @@ column = {
     'E' : "O",
 }
 index  = range(1,6)
-df = pandas.DataFrame(column, index=index)
 
 
 def show_date():

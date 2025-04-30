@@ -4,7 +4,7 @@
 
 **SQL** = oracle, mysql은 보안상 문제가 있음
 
-**RAG** = LLM 검색기능, Retrievar Agumented Generation
+**RAG** = LLM 검색기능, Retrievar Agumented증강 Generation 
 
 **cpu**에 따라서 **기계어**가 다름 - 이를 **컴파일**과정에서 맞춰주는것
 
