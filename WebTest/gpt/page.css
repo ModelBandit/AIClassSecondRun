@@ -1,0 +1,33 @@
+/* style.css */
+body {
+  margin: 0;
+  font-family: 'Orbitron', sans-serif;
+  background: radial-gradient(ellipse at center, #0f0f2f 0%, #000 100%);
+  color: #00ffe1;
+  text-align: center;
+}
+
+.cyber-title {
+  font-size: 3rem;
+  margin-top: 20vh;
+  text-shadow: 0 0 8px #00ffe1, 0 0 12px #00ffdd;
+  animation: flicker 2s infinite;
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.subtext {
+  font-size: 1.2rem;
+  color: #88ffee;
+  margin-top: 1rem;
+}
+
+hideit{
+  font-size: 1rem;
+  margin-top: 20vh;
+  text-shadow: 0 0 8px #00ffe1, 0 0 12px #00ffdd;
+  animation: flicker 2s infinite;
+}

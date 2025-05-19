@@ -13,3 +13,5 @@ react.js = func & class
 echma6
 
 fetch api
+
+final class asd 하면 상속불가
