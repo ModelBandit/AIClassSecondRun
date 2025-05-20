@@ -27,10 +27,13 @@ servlet - server + applet
 
 OS achitecture network
 
-ajax 비동기 프로그램\
+ajax 비동기 프로그램
 
 hidden tag의 중요역할
 csrp - Cross Site Request Forgery
 csrp 방지를 위해서 토큰사용
 
 보안문제로 쿠키에서 세션으로 옮겨감
+
+ID값은 해당 페이지(div,p)를 js로 유동적 컨트롤하는데 사용
+
