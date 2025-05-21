@@ -37,3 +37,4 @@ csrp 방지를 위해서 토큰사용
 
 ID값은 해당 페이지(div,p)를 js로 유동적 컨트롤하는데 사용
 
+aliment? endian과 관련?
