@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <style>
+            .container{
+                width: 700px;
+                display:flex;
+                background-color:#eee;
+                border:1px solid #222;
+                margin-bottom:30px;
+            }
+            .box{
+                padding:5px 45px;
+                margin:5px;
+                background-color:green;
+            }
+
+            #opt1{
+                flex-direction: row;
+                flex-flow: row wrap;
+            }
+            #opt2{
+                flex-direction: row-reverse;
+                flex-wrap:wrap;
+                /*direction + warp = flow*/
+                flex-flow: row nowrap;
+            }
+            #opt3{
+                flex-direction: column;
+
+            }
+            #opt4{
+                flex-direction: column-reverse;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="container" id="opt1">
+            <p class="box">1</p>
+            <p class="box">2</p>
+            <p class="box">3</p>
+            456
+            <p class="box">1</p>
+            <p class="box">2</p>
+            <p class="box">3</p>
+            <p class="box">1</p>
+            <p class="box">2</p>
+            <p class="box">3</p>
+        </div>
+        <div class="container" id="opt2">
+            <p class="box">1</p>
+            <p class="box">2</p>
+            <p class="box">3</p>
+            456
+            <p class="box">4</p>
+            <p class="box">5</p>
+            <p class="box">6</p>
+            <p class="box">7</p>
+            <p class="box">8</p>
+            <p class="box">9</p>
+        </div>
+        <div class="container" id="opt3">
+            <p class="box">1</p>
+            <p class="box">2</p>
+            <p class="box">3</p>
+            <p class="box">4</p>
+            <p class="box">5</p>
+            <p class="box">6</p>
+            <p class="box">7</p>
+            <p class="box">8</p>
+            <p class="box">9</p>
+        </div>
+        <div class="container" id="opt4">
+            <p class="box">1</p>
+            <p class="box">2</p>
+            <p class="box">3</p>
+            <p class="box">4</p>
+            <p class="box">5</p>
+            <p class="box">6</p>
+            <p class="box">7</p>
+            <p class="box">8</p>
+            <p class="box">9</p>
+            456
+        </div>
+    </body>
+</html>
