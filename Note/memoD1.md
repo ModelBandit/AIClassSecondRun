@@ -156,7 +156,7 @@ implecite 추상적
 
 explicite 명시적
 
-톰 미첼
+톰 미첼 - 카네기 메? 유니버시티
 
 a study of computer algorithms that allow computer program to automatically improve through experience.
 
