@@ -197,3 +197,12 @@ K-NN은 Numerical 데이터도 적용이 가능함.
 사이킷런 - 2차원 배열형태로 넘겨줘야 돌아감
 
 Parameter Efficiant Fine Tuning
+
+데이터를 수집하면 GScore라는 표준점수로 맞춰줘야함
+
+L1 norm 맨하탄 디스턴스 (절대값)
+
+multiple regression
+polyromia?
+
+규제 norm - 과적합까지 가지 않게할 적정선을 찾는것
