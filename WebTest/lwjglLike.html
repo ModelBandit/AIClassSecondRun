@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LWJGL Inspired Homepage</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
+      background: black;
+    }
+    canvas {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+    .gradient-mask {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at center, rgba(72, 31, 255, 0.5) 40%, rgba(193, 86, 255, 0.6) 100%);
+      z-index: 1;
+      pointer-events: none;
+    }
+    nav {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      display: flex;
+      justify-content: flex-end;
+      padding: 10px 30px;
+      box-sizing: border-box;
+      z-index: 3;
+    }
+    nav a {
+      color: #ccc;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      color: #00ccff;
+    }
+    .centered {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      z-index: 3;
+    }
+    .logo {
+      font-size: 4rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+      color: white;
+    }
+    .subtitle {
+      font-size: 1.2rem;
+      color: #aaa;
+    }
+    @media (max-width: 600px) {
+      .logo {
+        font-size: 2.5rem;
+      }
+      .subtitle {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <canvas id="bg"></canvas>
+  <div class="gradient-mask"></div>
+  <nav>
+    <a href="#">HOME</a>
+    <a href="#">GET STARTED</a>
+    <a href="#">DOWNLOAD</a>
+    <a href="#">CUSTOMIZE</a>
+    <a href="#">SOURCE</a>
+    <a href="#">FRAMEWORKS</a>
+  </nav>
+  <div class="centered">
+    <div class="logo">LWJGL</div>
+    <div class="subtitle">Lightweight Java Game Library</div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.154.0/build/three.min.js"></script>
+  <script>
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('bg'), antialias: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    camera.position.z = 30;
+
+    const group = new THREE.Group();
+    scene.add(group);
+
+    const geometry = new THREE.BoxGeometry();
+    const material = new THREE.MeshStandardMaterial({ color: 0x00ccff });
+
+    const cubes = [];
+    for (let i = 0; i < 150; i++) {
+      const cube = new THREE.Mesh(geometry, material);
+      cube.position.set(
+        (Math.random() - 0.5) * 100,
+        (Math.random() - 0.5) * 100,
+        (Math.random() - 0.5) * 100
+      );
+      cube.rotation.set(
+        Math.random() * Math.PI,
+        Math.random() * Math.PI,
+        Math.random() * Math.PI
+      );
+      group.add(cube);
+      cubes.push(cube);
+    }
+
+    const light = new THREE.PointLight(0xffffff, 1);
+    light.position.set(10, 10, 10);
+    scene.add(light);
+    scene.add(new THREE.AmbientLight(0x404040));
+
+    function animate() {
+      requestAnimationFrame(animate);
+      group.rotation.y += 0.0015; // 월드 중심 회전
+      cubes.forEach(cube => {
+        cube.rotation.x += 0.002; // 로컬 회전
+        cube.rotation.y += 0.003;
+      });
+      renderer.render(scene, camera);
+    }
+    animate();
+
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+  </script>
+</body>
+</html>
