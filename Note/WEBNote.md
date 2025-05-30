@@ -57,3 +57,9 @@ prediction
 agent는 강화학습을 통해서 학습하는데 거기에 markov process를 사용함.
 
 js 생명줄: ajax(비동기가능)을 통한 jquery. echma6의 패치api를 써야하는데 보통 기본 제공
+
+ajax, fetchAPI로 붙인다. 어디에?
+
+project object model -> xml 사용처
+
+GIS?
