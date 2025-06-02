@@ -26,3 +26,5 @@ JSP java sublit? program -> jinja2
  │
 spring
 AOP?
+
+semaphore 변수
