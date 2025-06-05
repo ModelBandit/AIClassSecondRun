@@ -234,3 +234,9 @@ Convex Func
 a를 가지고 미분을 한다치면 다른 변수는 상수취급
 b만 가지고 다른 변수는 상수취급
 
+peft parameter effitiant fine tuning
+
+시그모이드 이중분류
+로지스틱 다중분류\
+
+z = (w^T)x -> w가 내적을 위해 Transpose해서 전체 행렬이 됨
