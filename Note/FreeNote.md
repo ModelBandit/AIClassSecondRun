@@ -28,3 +28,17 @@ spring
 AOP?
 
 semaphore 변수
+
+추가 커리큘럼(2차 project 기간)
+1) LLM AI Agent
+2) Reinforcement learning
+
+1차 project 기간
+1) JSP/Spring framework
+2) Deep Learning
+
+1차 포폴
+선형회귀 이상을 것을 해볼것
+결정트리나 릿지회귀 같은것도 해볼것
+
+GRU - 게이트 줄여서 사용하는기법(수학적 증면된건 아님)

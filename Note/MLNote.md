@@ -240,3 +240,7 @@ peft parameter effitiant fine tuning
 로지스틱 다중분류\
 
 z = (w^T)x -> w가 내적을 위해 Transpose해서 전체 행렬이 됨
+
+RNN - Vanishing 현상
+
+LLM Agnet의 적용대상 - 주식트레이닝 - 자동화가 유리함
