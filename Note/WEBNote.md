@@ -63,3 +63,35 @@ ajax, fetchAPI로 붙인다. 어디에?
 project object model -> xml 사용처
 
 GIS?
+
+리눅스의 라우터데몬을 보면 매커니즘은 확인 가능
+다이젝스트라가 기본원리
+
+defacto -> tcp/ip
+
+transmission connect
+tcp/ip : connection oridented된 상태로 작동한다
+udp : connectionless
+user datagram protocol
+
+transmission
+TCP - flow control(주고받는 속도 컨트롤) *(Slide Window (점점 많이 보내는 방식))
+       error handleing(데이터 잘 받았는지 확인함(UDP는 안함))
+-------------------------
+network(IP) - 라우터
+---------------------------
+data(스위치장비) - CSMA 802.3 - 멀티콜리전 발생시, 재전송하는 프로토콜
+-------------------------
+physics - 하드웨어
+
+packet = header+payload
+
+포트넘버도 암묵지가 있음
+
+header = []
+
+CRC16 
+
+개인끼리 애니캐스트
+그룹끼리 멀티캐스트
+멀티캐스트 - 브로드캐스트(ARP Address Resolution, 대충 생존신고하는 프로토콜)
