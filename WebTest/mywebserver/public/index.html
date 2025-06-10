@@ -90,6 +90,7 @@
     <a href="#">CUSTOMIZE</a>
     <a href="#">SOURCE</a>
     <a href="#">FRAMEWORKS</a>
+    <button onclick="send()">전송!</button>
   </nav>
   <div class="centered">
     <div class="logo">LWJGL</div>
@@ -147,6 +148,15 @@
       camera.updateProjectionMatrix();
       renderer.setSize(window.innerWidth, window.innerHeight);
     });
+    function send() {
+        fetch('/api/data', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: '안녕 서버!' })
+    })
+      .then(res => res.json())
+      .then(data => console.log('응답:', data));
+    }
   </script>
 </body>
 </html>
