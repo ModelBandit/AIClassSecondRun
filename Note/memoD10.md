@@ -2,7 +2,8 @@ JSP = mvc에서 view단 작업
 
 비슷한건 jinja2, springboot에  thymeleaf(타임리프)
 
-msa에 springboot가 사용됨. 콤팩트한가봄
+msa에 springboot가 사용됨. 
+springboot에 스프링이나 자바나 다른 것들이 전부 포함된 상태이기에 하나를 쓰면 몇가지를 같이 쓰게됨
 
 PG Payment Gate
 
