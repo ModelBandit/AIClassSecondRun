@@ -58,3 +58,8 @@ MSA 구성을 위해서 웹,스프링, 자바 같은 지식을 필요로 함
 
 msa에 springboot가 사용됨. 
 springboot에 스프링이나 자바나 다른 것들이 전부 포함된 상태이기에 하나를 쓰면 몇가지를 같이 쓰게됨
+
+심볼릭으로 뉴럴 네트워킹? 강화 학습이 적용된거라함
+DQN + NN 붙인거?
+Neuro symbolic RL(강화학습)
+프롤로그, Rule based
