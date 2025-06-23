@@ -2,6 +2,7 @@ import ollama
 
 #ollama serve를 통해서 진입 설정이 없다면 127.0.0.1:11434로 설정됨
 def baseuse():
+
     response = ollama.generate(
         model="llama3",
         prompt="/bye"
@@ -30,5 +31,3 @@ def streaming():
 
     for chunk in stream:
         print(chunk["response"], end="", flush=True)
-
-streaming()
