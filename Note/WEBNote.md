@@ -169,3 +169,7 @@ running이 돌면 stand가 켜진다 치자.
 패킷 - 헤더|payload
 
 TCP/UDP 층으로 넘어가면 TCP/UDP헤터|payload 형태가 될텐데 AWS로 넘어가서 어떤일이 벌어지나?
+
+web: template Engine
+thyme leap <> spring boot
+jinja2 <> flask
