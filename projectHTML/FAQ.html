@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAQ</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0f8ff;
+    }
+
+    header {
+      background-color: #b3daff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .logo {
+      font-size: 1.5em;
+      font-weight: bold;
+      color: #005f99;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      cursor: pointer;
+      color: #003f66;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li:hover {
+      color: #000;
+    }
+
+    .faq-container {
+      max-width: 800px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    .faq-title {
+      text-align: center;
+      font-size: 1.8em;
+      margin-bottom: 40px;
+      color: #005f99;
+    }
+
+    .faq-item {
+      margin-bottom: 20px;
+    }
+
+    .faq-item .question {
+      font-weight: bold;
+      margin-bottom: 6px;
+      color: #003f66;
+    }
+
+    .faq-item .answer {
+      padding-left: 12px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">MyLogo</div>
+    <nav>
+      <ul>
+        <li>Home</li>
+        <li>About</li>
+        <li>Simulate</li>
+        <li>AI Advice</li>
+        <li>FAQ</li>
+        <li>Login</li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="faq-container">
+    <div class="faq-title">무엇을 도와드릴까요?</div>
+
+    <!-- 질문/답변 1~10 반복 -->
+    <div id="faq-list">
+      <!-- JS에서 자동 생성됨 -->
+    </div>
+  </main>
+
+  <script>
+    const faqList = document.getElementById('faq-list');
+
+    for (let i = 1; i <= 10; i++) {
+      const item = document.createElement('div');
+      item.className = 'faq-item';
+
+      const q = document.createElement('div');
+      q.className = 'question';
+      q.textContent = `Q${i}. 자주 묻는 질문 예시입니다.`;
+
+      const a = document.createElement('div');
+      a.className = 'answer';
+      a.textContent = `A${i}. 여기에 해당 질문에 대한 간단한 답변이 들어갑니다.`;
+
+      item.appendChild(q);
+      item.appendChild(a);
+      faqList.appendChild(item);
+    }
+  </script>
+</body>
+</html>

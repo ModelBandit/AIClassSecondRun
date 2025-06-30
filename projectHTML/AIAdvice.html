@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Advice</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0f8ff;
+      overflow: hidden;
+    }
+
+    header {
+      background-color: #b3daff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .logo {
+      font-size: 1.5em;
+      font-weight: bold;
+      color: #005f99;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      cursor: pointer;
+      color: #003f66;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li:hover {
+      color: #000;
+    }
+
+    .dashboard {
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 200px;
+      height: calc(100% - 60px);
+      background-color: #d7edff;
+      box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: transform 0.3s ease;
+      z-index: 90;
+    }
+
+    .dashboard.hidden {
+      transform: translateX(-220px);
+    }
+
+    .toggle-btn {
+      position: absolute;
+      top: 70px;
+      left: 210px;
+      z-index: 91;
+      background-color: #5ebeff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 4px 10px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: left 0.3s ease;
+    }
+
+    .toggle-btn.collapsed {
+      left: 10px;
+    }
+
+    .tab {
+      background-color: #ffffff;
+      padding: 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      text-align: center;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      font-size: 0.9em;
+    }
+
+    .tab.active {
+      background-color: #5ebeff;
+      color: white;
+    }
+
+    .chat-container {
+      position: absolute;
+      top: 60px;
+      left: 220px;
+      right: 0;
+      bottom: 60px;
+      padding: 20px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: left 0.3s ease;
+    }
+
+    .chat-container.full-width {
+      left: 20px;
+    }
+
+    .message {
+      max-width: 70%;
+      padding: 10px 14px;
+      border-radius: 12px;
+      line-height: 1.4;
+      word-break: break-word;
+    }
+
+    .from-ai {
+      background-color: #e3f2fd;
+      align-self: flex-start;
+    }
+
+    .from-user {
+      background-color: #c2ebff;
+      align-self: flex-end;
+    }
+
+    .input-area {
+      position: absolute;
+      bottom: 0;
+      left: 220px;
+      right: 0;
+      background-color: #ffffff;
+      padding: 10px 20px;
+      display: flex;
+      gap: 10px;
+      transition: left 0.3s ease;
+    }
+
+    .input-area.full-width {
+      left: 20px;
+    }
+
+    .input-area input {
+      flex-grow: 1;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1em;
+    }
+
+    .input-area button {
+      background-color: #5ebeff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 16px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    @media (max-width: 768px) {
+      .chat-container,
+      .input-area {
+        left: 20px !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">MyLogo</div>
+    <nav>
+      <ul>
+        <li>Home</li>
+        <li>About</li>
+        <li>Simulate</li>
+        <li>AI Advice</li>
+        <li>FAQ</li>
+        <li>Login</li>
+      </ul>
+    </nav>
+  </header>
+
+  <button class="toggle-btn" id="toggleBtn" onclick="toggleDashboard()"><<<</button>
+
+  <aside class="dashboard" id="dashboard">
+    <div class="tab active">최근 대화</div>
+    <div class="tab">북마크</div>
+    <div class="tab">설정</div>
+  </aside>
+
+  <main class="chat-container" id="chatContainer">
+    <div class="message from-ai">안녕하세요! 무엇을 도와드릴까요?</div>
+    <div class="message from-user">최근에 했던 시뮬레이션 기반 분석 결과 알려줘</div>
+    <div class="message from-ai">지난 분석에서는 AI 정확도가 87%로 나타났어요.</div>
+  </main>
+
+  <div class="input-area" id="inputArea">
+    <input type="text" id="chatInput" placeholder="메시지를 입력하세요..." />
+    <button onclick="sendMessage()">전송</button>
+  </div>
+
+  <script>
+    function toggleDashboard() {
+      const dashboard = document.getElementById('dashboard');
+      const chatContainer = document.getElementById('chatContainer');
+      const inputArea = document.getElementById('inputArea');
+      const toggleBtn = document.getElementById('toggleBtn');
+
+      const isHidden = dashboard.classList.toggle('hidden');
+      chatContainer.classList.toggle('full-width');
+      inputArea.classList.toggle('full-width');
+      toggleBtn.classList.toggle('collapsed');
+      toggleBtn.innerText = isHidden ? '>>>' : '<<<';
+    }
+
+    function sendMessage() {
+      const input = document.getElementById('chatInput');
+      const text = input.value.trim();
+      if (!text) return;
+
+      const chatContainer = document.getElementById('chatContainer');
+
+      // 사용자 메시지
+      const userMsg = document.createElement('div');
+      userMsg.className = 'message from-user';
+      userMsg.textContent = text;
+      chatContainer.appendChild(userMsg);
+
+      // 더미 AI 응답
+      const aiMsg = document.createElement('div');
+      aiMsg.className = 'message from-ai';
+      aiMsg.textContent = 'AI 응답: "' + text + '"에 대한 내용을 처리 중입니다.';
+      chatContainer.appendChild(aiMsg);
+
+      input.value = '';
+      chatContainer.scrollTop = chatContainer.scrollHeight;
+    }
+  </script>
+</body>
+</html>

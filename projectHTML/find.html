@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>아이디/비밀번호 찾기</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0f8ff;
+    }
+
+    header {
+      background-color: #b3daff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .logo {
+      font-size: 1.5em;
+      font-weight: bold;
+      color: #005f99;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      cursor: pointer;
+      color: #003f66;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li:hover {
+      color: #000;
+    }
+
+    .find-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+      padding: 60px 20px;
+    }
+
+    .find-card {
+      background-color: white;
+      padding: 30px 25px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 360px;
+      box-sizing: border-box;
+    }
+
+    .find-card h2 {
+      text-align: center;
+      margin-bottom: 24px;
+      color: #005f99;
+    }
+
+    .find-card input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 14px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1em;
+    }
+
+    .find-card button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      background-color: #5ebeff;
+      color: white;
+      font-size: 1em;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">MyLogo</div>
+    <nav>
+      <ul>
+        <li>Home</li>
+        <li>About</li>
+        <li>Simulate</li>
+        <li>AI Advice</li>
+        <li>FAQ</li>
+        <li>Login</li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="find-container">
+    <!-- 아이디 찾기 -->
+    <div class="find-card">
+      <h2>아이디 찾기</h2>
+      <input type="text" placeholder="이름" />
+      <input type="text" placeholder="주민등록번호" />
+      <button>아이디 찾기</button>
+    </div>
+
+    <!-- 비밀번호 찾기 -->
+    <div class="find-card">
+      <h2>비밀번호 찾기</h2>
+      <input type="text" placeholder="이름" />
+      <input type="text" placeholder="주민등록번호" />
+      <input type="text" placeholder="아이디" />
+      <button>비밀번호 찾기</button>
+    </div>
+  </main>
+</body>
+</html>

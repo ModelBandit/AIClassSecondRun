@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simulate</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0f8ff;
+      overflow-x: hidden;
+    }
+
+    header {
+      background-color: #b3daff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .logo {
+      font-size: 1.5em;
+      font-weight: bold;
+      color: #005f99;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      cursor: pointer;
+      color: #003f66;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li:hover {
+      color: #000;
+    }
+
+    .dashboard {
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 200px;
+      height: calc(100% - 60px);
+      background-color: #d7edff;
+      box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: transform 0.3s ease;
+      z-index: 90;
+    }
+
+    .dashboard.hidden {
+      transform: translateX(-220px);
+    }
+
+    .toggle-btn {
+      position: absolute;
+      top: 70px;
+      left: 210px;
+      z-index: 91;
+      background-color: #5ebeff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 4px 10px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: left 0.3s ease;
+    }
+
+    .toggle-btn.collapsed {
+      left: 10px;
+    }
+
+    .tab {
+      background-color: #ffffff;
+      padding: 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      text-align: center;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    .tab.active {
+      background-color: #5ebeff;
+      color: white;
+    }
+
+    .content {
+      margin-left: 220px;
+      padding: 40px;
+      transition: margin-left 0.3s ease;
+    }
+
+    .content.full-width {
+      margin-left: 20px;
+    }
+
+    canvas {
+      max-width: 100%;
+      height: auto;
+    }
+
+    @media (max-width: 768px) {
+      .content {
+        margin-left: 20px !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">MyLogo</div>
+    <nav>
+      <ul>
+        <li>Home</li>
+        <li>About</li>
+        <li>Simulate</li>
+        <li>AI Advice</li>
+        <li>FAQ</li>
+        <li>Login</li>
+      </ul>
+    </nav>
+  </header>
+
+  <button class="toggle-btn" id="toggleBtn" onclick="toggleDashboard()"><<<</button>
+
+  <aside class="dashboard" id="dashboard">
+    <div class="tab active" data-tab="tab1" onclick="switchChart('tab1', this)">탭1</div>
+    <div class="tab" data-tab="tab2" onclick="switchChart('tab2', this)">탭2</div>
+  </aside>
+
+  <main class="content" id="mainContent">
+    <canvas id="chartCanvas"></canvas>
+  </main>
+
+  <script>
+    let currentChart = null;
+    const ctx = document.getElementById('chartCanvas').getContext('2d');
+
+    const chartData = {
+      tab1: {
+        labels: ['1월', '2월', '3월', '4월'],
+        datasets: [{
+          label: '탭1 데이터',
+          data: [10, 20, 30, 40],
+          borderColor: '#5ebeff',
+          tension: 0.3
+        }]
+      },
+      tab2: {
+        labels: ['봄', '여름', '가을', '겨울'],
+        datasets: [{
+          label: '탭2 데이터',
+          data: [5, 15, 10, 25],
+          borderColor: '#ff7f50',
+          tension: 0.3
+        }]
+      }
+    };
+
+    function renderChart(tab) {
+      if (currentChart) currentChart.destroy();
+      currentChart = new Chart(ctx, {
+        type: 'line',
+        data: chartData[tab],
+        options: {
+          responsive: true,
+          plugins: {
+            legend: { position: 'top' },
+            title: { display: false }
+          }
+        }
+      });
+    }
+
+    function switchChart(tab, element) {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      element.classList.add('active');
+      renderChart(tab);
+    }
+
+    function toggleDashboard() {
+      const dashboard = document.getElementById('dashboard');
+      const mainContent = document.getElementById('mainContent');
+      const toggleBtn = document.getElementById('toggleBtn');
+
+      const isHidden = dashboard.classList.toggle('hidden');
+      mainContent.classList.toggle('full-width');
+      toggleBtn.classList.toggle('collapsed');
+      toggleBtn.innerText = isHidden ? '>>>' : '<<<';
+    }
+
+    // 초기 차트
+    renderChart('tab1');
+  </script>
+</body>
+</html>

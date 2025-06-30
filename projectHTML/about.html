@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0f8ff;
+    }
+
+    header {
+      background-color: #b3daff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .logo {
+      font-size: 1.5em;
+      font-weight: bold;
+      color: #005f99;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      cursor: pointer;
+      color: #003f66;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li:hover {
+      color: #000;
+    }
+
+    .about-container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+      padding: 40px 20px;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      display: flex;
+      align-items: center;
+      width: 90%;
+      max-width: 600px;
+      padding: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .card img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-right: 20px;
+    }
+
+    .info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .name {
+      font-size: 1.2em;
+      font-weight: bold;
+      color: #005f99;
+    }
+
+    .role {
+      font-size: 0.95em;
+      color: #444;
+      margin-top: 8px;
+    }
+
+    @media (max-width: 768px) {
+      .card {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .card img {
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+
+      .role {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">MyLogo</div>
+    <nav>
+      <ul>
+        <li>Home</li>
+        <li>About</li>
+        <li>Simulate</li>
+        <li>AI Advice</li>
+        <li>FAQ</li>
+        <li>Login</li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section class="about-container">
+      <div class="card">
+        <img src="https://via.placeholder.com/100" alt="사진1" />
+        <div class="info">
+          <div class="name">홍길동</div>
+          <div class="role">데이터 분석</div>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://via.placeholder.com/100" alt="사진2" />
+        <div class="info">
+          <div class="name">이순신</div>
+          <div class="role">AI 모델링</div>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://via.placeholder.com/100" alt="사진3" />
+        <div class="info">
+          <div class="name">김유신</div>
+          <div class="role">프론트 개발</div>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
