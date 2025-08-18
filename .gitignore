@@ -179,3 +179,4 @@ cython_debug/
 # PyPI configuration file
 .pypirc
 *.zip
+mainclass/허깅페이스/tokendata.txt

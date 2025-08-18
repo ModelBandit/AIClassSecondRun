@@ -1,0 +1,19 @@
+NLP = 자연어 처리
+
+입력 시퀀스 발생시 - 토크나이즈(토큰화) <- 이걸 벡터화라 부르는곳 어디?
+이렇게 토큰나이즈된 정보를 바이너리로 바꾸는게 임베이딩
+
+인프라 레이어 - 
+
+full shot - one shot
+
+pretraind model 
+
+MCP Model Context Protocol 2024 11월 30일에 출시된거
+
+1차에서 2차로 건너가면서 생성형 AI, AI 에이전트, RAG, Langchain(MCP)을 얹어야함
+그리고 Llama3 - 파인튜닝이 마지막
+
+RLHF 강화학습 휴먼 피드백
+
+상황에 따라서 노드가 꺼지기도 함? - > 조사

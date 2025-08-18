@@ -30,3 +30,13 @@
 이용 / 활용 / 관찰하면서 느낀점
 기술의 미래를 위한 성찰점
 지원자 기술 습득을 위한 노력의 행동점
+
+우리가 회사에 들어가면 SI업체를 들어가게 될텐데(System Integration)
+여기서 일반 app-> 서비스 개발자로 들어가게 될것.
+
+여기 표준이 java/spring이다 보니 비전공자도 잡아볼만한 부분
+
+RFP - Request for proposal
+
+설계 - usecase diagram - (순서) sequence diagram - (클래스) class diagram
+
