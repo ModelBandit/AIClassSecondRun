@@ -1,9 +1,15 @@
 from huggingface_hub import login
 from transformers import pipeline
 
-login(token="tokenInfo")
+from dotenv import load_dotenv
+import os
 
-model_name = "facebook/nllb-200-distilled-600M"
+
+load_dotenv()
+key = os.getenv("OPENAI_API_KEY")
+login(token=key)
+
+model_name = "google/gemma-3-270m"
 
 translator_ko_en = pipeline("translation", model=model_name, src_lang="kor_Hang", tgt_lang="eng_Latn")
 translator_en_ko = pipeline("translation", model=model_name, src_lang="eng_Latn", tgt_lang="kor_Hang")
