@@ -8,6 +8,7 @@ x64/
 x86/
 Debug/
 Release/
+python/jn/VDB/chroma_store
 
 # C extensions
 *.so
@@ -180,3 +181,4 @@ cython_debug/
 .pypirc
 *.zip
 mainclass/허깅페이스/tokendata.txt
+python/jn/VDB/OneNYC_2050_Strategic_Plan.pdf
