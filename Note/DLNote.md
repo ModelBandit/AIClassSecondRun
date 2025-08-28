@@ -26,3 +26,9 @@ Binary Cross Entrophy
 
 로그 - 단조 증가를 해서 아무데나 붙여도 된다?
 이걸 붙이면 런 라이니어 폼으로 변함 -> 벡터로 변함 -> 미분이 됨
+
+9월 첫 주차
+CNN - Image Classsification
+
+Object Detection에 사용
+YOLO (You Only Look Once)

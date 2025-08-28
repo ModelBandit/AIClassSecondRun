@@ -4,7 +4,7 @@ Total Test: 통합 테스트 - 병합후 전체 플로우 테스트
 JUNIT: 개발자가 JUNIT을 돌려서 걸리면 해당 오류 수정까지 개발을 막는 방법
 TDD(Test Driven Development): 테스트 주도 개발
 
-as: 리눅스의 개념. aliase 의 약자.
+as: 리눅스의 개념. alias 의 약자.
 
 파일을 open()으로 호출하면 os를 통해서 file descriptor가 나옴
 

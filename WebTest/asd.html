@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Header with Prediction Dropdown</title>
+<style>
+  /* ─── Top bar ───────────────────────────────────────── */
+  .site-header{
+    display:flex; 
+    align-items:center; 
+    justify-content:space-between;
+    padding:12px 20px; 
+    background:#eaf3ff; 
+    border-bottom:1px solid #d6e6ff;
+  }
+  .logo{ font-weight:700; letter-spacing:.2px; }
+  .nav ul{ display:flex; gap:12px; list-style:none; margin:0; padding:0; }
+  .nav a, .nav button{
+    font:600 14px/1.2 system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    padding:10px 12px; border-radius:10px; border:1px solid transparent;
+    background:transparent; cursor:pointer;
+  }
+  .nav a:hover, .nav button:hover{ background:#f4f8ff; border-color:#e2edff; }
+  .nav button:focus{ outline:2px solid #8bb8ff; outline-offset:2px; }
+
+  /* ─── Dropdown ──────────────────────────────────────── */
+  .dropdown{ position:relative; }
+  .dropdown .panel{
+    position:absolute; top:100%; right:0; z-index:50;
+    margin-top:8px; min-width:320px; max-height:60vh; overflow:auto;
+    background:#fff; border:1px solid #dfe8ff; border-radius:14px;
+    box-shadow:0 12px 28px rgba(19,33,68,.12); padding:10px;
+    display:grid; grid-template-columns:1fr 1fr; gap:6px;
+    opacity:0; transform:translateY(6px); pointer-events:none;
+    transition:opacity .15s ease, transform .15s ease;
+  }
+  /* hover, focus-within(키보드), .open(모바일/터치 클릭) 모두 지원 */
+  .dropdown:hover .panel,
+  .dropdown:focus-within .panel,
+  .dropdown.open .panel{
+    opacity:1; transform:translateY(0); pointer-events:auto;
+  }
+  .panel a{
+    display:block; padding:8px 10px; border-radius:10px; text-decoration:none;
+    color:#14213d; border:1px solid transparent; font-size:13px;
+  }
+  .panel a:hover, .panel a:focus{
+    background:#f6faff; border-color:#e5efff; outline:none;
+  }
+
+  /* 모바일에서 화면폭 좁을 때 한 줄 */
+  @media (max-width: 520px){
+    .dropdown .panel{ min-width: 260px; grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="logo">CAREER.AI</div>
+
+  <nav class="nav" aria-label="주 메뉴">
+    <ul>
+      <li><a href="/">Home</a></li>
+
+      <!-- Prediction dropdown -->
+      <li class="dropdown" id="predictionMenu">
+        <button class="trigger"
+                aria-haspopup="true"
+                aria-expanded="false"
+                aria-controls="predictionPanel">
+          Prediction
+        </button>
+
+        <div class="panel" id="predictionPanel" role="menu" aria-label="Prediction">
+          <!-- TODO: href 를 실제 라우트로 변경하세요 -->
+          <a role="menuitem" href="IndustryForm.jsp">Industry</a>
+          <a role="menuitem" href="simulate.jsp">Career</a>
+        </div>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<script>
+  // 터치/모바일에서 탭으로 열고 닫기 + ESC 닫기 + 바깥 클릭 닫기
+  const menu = document.getElementById('predictionMenu');
+  const trigger = menu.querySelector('.trigger');
+  const panel = document.getElementById('predictionPanel');
+
+  // 클릭 토글 (모바일/터치)
+  trigger.addEventListener('click', (e) => {
+    const expanded = trigger.getAttribute('aria-expanded') === 'true';
+    trigger.setAttribute('aria-expanded', String(!expanded));
+    menu.classList.toggle('open', !expanded);
+  });
+
+  // 바깥 클릭 시 닫기
+  document.addEventListener('click', (e) => {
+    if (!menu.contains(e.target)) {
+      trigger.setAttribute('aria-expanded', 'false');
+      menu.classList.remove('open');
+    }
+  });
+
+  // ESC 닫기
+  menu.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      trigger.setAttribute('aria-expanded', 'false');
+      menu.classList.remove('open');
+      trigger.focus();
+    }
+  });
+
+  // 메뉴 아이템에서 Enter 선택 시 자동 닫기
+  panel.querySelectorAll('a[role="menuitem"]').forEach(a => {
+    a.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        trigger.setAttribute('aria-expanded', 'false');
+        menu.classList.remove('open');
+      }
+    });
+  });
+</script>
+</body>
+</html>
