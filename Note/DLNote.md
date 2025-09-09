@@ -2,7 +2,7 @@ Node == Neuron == token
 
 가중치 y=ax+b -> a가 weight
 
-net == 순수한(경영학 순자산)
+net == 순수한(경영학 순자산) - 인풋이랑 웨이트 계산해서 다 더한 값
 
 Neuron - 인풋을 서베이션해서 acitivation func에 따라 값을 내놓는 구조를 가진 노드
 
