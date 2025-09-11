@@ -15,7 +15,7 @@ discrete func 정의 == pmf
 vanising explosion
 
 확률 변수  - 샘플 스페이스에서 나올 수 있는 값
-\
+
 베르노이:한번만 함 - 바이노미얼:N번함
 
 PMF - provability math function
