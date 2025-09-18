@@ -13,3 +13,7 @@ DAO - Data Access Object
 DTO - Data Tranport Object
 
 HTTP 본문 내에서 집어넣는 경우는 일반처리와 다름?
+
+front controller pattern
+메인 클래스 하나두고 이 클래스가 데이터 처리를 총괄함
+그런데 dispatcher servlet이 이미 스프링에 구현되어있음.
